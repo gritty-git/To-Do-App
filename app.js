@@ -13,9 +13,13 @@ app.use(bodyParser.urlencoded({
   extended: true
 }));
 app.use(express.static("public"));
+const uri ="mongodb+srv://soumya:HeSLMwHibTD4hgEz@firstproject.iqnpm.mongodb.net/todolistDB?retryWrites=true&w=majority";
 
-mongoose.connect("mongodb+srv://MSoumya:MSoumya@cluster0.iqnpm.mongodb.net/todolistDB", {
-  useNewUrlParser: true
+
+mongoose.connect(uri, {
+  useUnifiedTopology: true,
+  useNewUrlParser: true,
+  useCreateIndex: true
 });
 
 const itemsSchema = new mongoose.Schema({
